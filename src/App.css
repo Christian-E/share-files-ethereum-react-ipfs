@@ -1,0 +1,8 @@
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+:root{
+   --mdc-theme-primary: #E3004A;
+}
