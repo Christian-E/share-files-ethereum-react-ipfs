@@ -6,3 +6,9 @@ a{
 :root{
    --mdc-theme-primary: #E3004A;
 }
+
+.app-fab--absolute {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}

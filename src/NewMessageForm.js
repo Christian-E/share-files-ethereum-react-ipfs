@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ipfsAPI from 'ipfs-api';
+import {MDCFormField} from '@material/form-field';
+import{MDCTextField} from '@material/textfield';
 
 class NewMessageForm extends Component{
     constructor(props){
@@ -17,6 +19,11 @@ class NewMessageForm extends Component{
         this.sendMessage = this.sendMessage.bind(this);
         this.handleChange = this.handleFileChange.bind(this);
         this.saveToIpfs = this.saveToIpfs.bind(this);
+      }
+
+      componentDidMount(){
+        MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
+        MDCFormField.attachTo(document.querySelector('.mdc-form-field'));
       }
 
       setRecipient(event) {
@@ -63,15 +70,18 @@ class NewMessageForm extends Component{
         return (
           <div>
             <form onSubmit={this.sendMessage}>
-              <label>
-                Empfänger:
-                <input type="text" value={this.state.recipient} onChange={this.setRecipient} />
-              </label><br/>
-              <label>
-                Datei:
-                <input type="file" onChange={ (e) => this.handleFileChange(e.target.files[0]) } />
-              </label>
-              <input type="submit" value="Submit" />
+            <div className="mdc-text-field">
+              <input type="text" id="my-text-field" className="mdc-text-field__input" value={this.state.recipient} onChange={this.setRecipient}/>
+              <label className={"mdc-floating-label "} htmlFor="my-text-field">Empfänger</label>
+              <div className="mdc-line-ripple"></div>
+            </div>
+            <div className="mdc-form-field mdc-form-field--align-end">
+                <input type="file" onChange={ (e) => this.handleFileChange(e.target.files[0]) } id="fileSelect" />
+                <label htmlFor="fileSelect">Datei</label>
+            </div>
+            <div className="mdc-form-field">
+              <input type="submit" value="Submit" className="mdc-button mdc-button--raised" />
+            </div>
             </form>
           </div>
         );

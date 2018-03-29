@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material/auto-init": "^0.32.0",
+    "@material/form-field": "^0.33.0",
+    "@material/textfield": "^0.33.0",
     "ipfs-api": "^18.2.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

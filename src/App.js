@@ -91,6 +91,11 @@ class App extends Component {
             </div>
           </div>
         </div>
+        <button className="mdc-fab material-icons app-fab--absolute" aria-label="Favorite">
+          <span className="mdc-fab__icon">
+            send
+          </span>
+        </button>
       </div>
         
         
