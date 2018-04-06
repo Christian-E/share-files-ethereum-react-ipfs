@@ -5,6 +5,7 @@ a{
 
 :root{
    --mdc-theme-primary: #E3004A;
+   --mdc-theme-secondary: #277700;
 }
 
 .app-fab--absolute {

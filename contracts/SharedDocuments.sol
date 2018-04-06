@@ -1,10 +1,12 @@
-pragma solidity ^0.4.17;
+pragma solidity ^0.4.19;
 
 contract SharedDocuments {
+
     struct Message{
-        string documentHash;
+        bytes32 hashValue;
         address sender;
         address recipient;
+        string fileName;
     }
 
     Message[] public messages;
@@ -12,8 +14,8 @@ contract SharedDocuments {
     mapping(address => uint32) sentCount;
     mapping(address => uint32) receivedCount;
 
-    function createMessage(string _documentHash, address _recipient) public{
-        messages.push(Message(_documentHash,msg.sender,_recipient));
+    function createMessage(bytes32 _documentHashValue, address _recipient, string _fileName) public{
+        messages.push(Message(_documentHashValue, msg.sender, _recipient, _fileName));
         sentCount[msg.sender]++;
         receivedCount[_recipient]++;
     }
